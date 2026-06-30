@@ -3,7 +3,7 @@ require("dusts.lazy")
 
 -- Manual Installation Codeium
 vim.o.packpath = vim.o.packpath .. ",~/.config/nvim"
-vim.cmd([[packadd codeium.vim]])
+vim.cmd([[packadd windsurf.vim]])
 
 -- Codeium Keybindings
 vim.keymap.set("i", "<C-g>", function()
