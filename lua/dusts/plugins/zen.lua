@@ -2,13 +2,16 @@ return {
 	{
 		"folke/zen-mode.nvim",
 		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
+			window = {
+				backdrop = 0.95,
+				width = 80,
+				height = 1,
+			},
 			plugins = {
 				twilight = { enabled = true },
 				kitty = {
 					enabled = true,
-					font = "+6",
+					font = "+8", -- increments from your base 18 → 24
 				},
 			},
 		},
@@ -16,9 +19,16 @@ return {
 	{
 		"folke/twilight.nvim",
 		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
+			dimming = {
+				alpha = 0.25, -- The opacity of the dimmed text
+				color = { "Normal", "#ffffff" },
+			},
+			context = 2, -- How many lines to keep visible outside the current node
+			treesitter = true, -- Crucial for Markdown parsing
+			expand = {
+				"paragraph", -- Tells Twilight to focus on the whole paragraph node
+				"markdown",
+			},
 		},
 	},
 }

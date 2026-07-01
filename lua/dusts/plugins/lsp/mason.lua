@@ -1,4 +1,3 @@
--- mason.lua
 return {
 	"williamboman/mason.nvim",
 	dependencies = {
@@ -6,43 +5,25 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
-		-- import mason
-		local mason = require("mason")
+		require("mason").setup()
 
-		-- import mason-lspconfig
-		local mason_lspconfig = require("mason-lspconfig")
-
-		local mason_tool_installer = require("mason-tool-installer")
-
-		-- enable mason and configure icons
-		mason.setup({
-			ui = {
-				icons = {
-					package_installed = "✓",
-					package_pending = "➜",
-					package_uninstalled = "✗",
-				},
-			},
+		require("mason-lspconfig").setup({
+			ensure_installed = { "lua_ls", "marksman", "pyright", "html", "cssls" },
+			automatic_installation = true,
 		})
 
-		mason_lspconfig.setup({
-			-- list of servers for mason to install
+		require("mason-tool-installer").setup({
 			ensure_installed = {
-				"html",
-				"cssls",
-				"lua_ls",
-				"pyright",
-				"marksman",
-			},
-			-- auto-install configured servers (with lspconfig)
-			automatic_installation = true, -- not the same as ensure_installed
-		})
-
-		mason_tool_installer.setup({
-			ensure_installed = {
-				"prettier", -- prettier formatter
-				"stylua", -- lua formatter
-				"black", -- python formatter
+				"prettier", -- markdown/html/css formatting
+				"stylua", -- lua formatting
+				"black", -- python formatting
+				"isort", -- python sort imports
+				"markdownlint", -- markdown linting
+				"selene", -- lua linting
+				"shellcheck", -- shell linting
+				"flake8", -- python linting
+				"cpplint", -- cpp linting
+				"djlint", -- html linting
 			},
 		})
 	end,

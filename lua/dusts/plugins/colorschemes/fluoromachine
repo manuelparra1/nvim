@@ -1,0 +1,12 @@
+return {
+	{
+		"maxmx03/fluoromachine.nvim",
+		priority = 1000, -- make sure to load this before all the other start plugins
+		config = function()
+			require("fluoromachine").setup({
+				theme = "retrowave", -- fluoromachine, retrowave, delta
+			})
+			vim.cmd.colorscheme("fluoromachine")
+		end,
+	},
+}

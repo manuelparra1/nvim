@@ -1,4 +1,4 @@
-return { -- ChatGPT NeoVim Client
+return {
 	"jackMort/ChatGPT.nvim",
 	event = "VeryLazy",
 	config = function()
@@ -8,7 +8,7 @@ return { -- ChatGPT NeoVim Client
 					highlight = "FloatBorder",
 					style = "rounded",
 					text = {
-						top = " Unlimited Power! ",
+						top = " Infinite Power!!! ",
 					},
 				},
 			},
@@ -21,6 +21,17 @@ return { -- ChatGPT NeoVim Client
 				n = 1,
 			},
 		})
+
+		-- Keymaps
+		-- ChatGPT
+		vim.api.nvim_set_keymap("n", "<leader>gp", "<cmd>ChatGPT<CR>", { noremap = true, silent = true })
+		-- Edit With Instructions function
+		vim.api.nvim_set_keymap(
+			"v",
+			"<leader>gi",
+			"<cmd>ChatGPTEditWithInstruction<CR>",
+			{ noremap = true, silent = true }
+		)
 	end,
 	dependencies = {
 		"MunifTanjim/nui.nvim",

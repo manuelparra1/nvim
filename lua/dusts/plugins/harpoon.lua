@@ -15,12 +15,6 @@ return {
 		)
 		keymap.set(
 			"n",
-			"<leader>hu",
-			"<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
-			{ desc = "Open Harpoon Quick Menu" }
-		)
-		keymap.set(
-			"n",
 			"<leader>hn",
 			"<cmd>lua require('harpoon.ui').nav_next()<cr>",
 			{ desc = "Go to next harpoon mark" }
